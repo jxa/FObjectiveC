@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'FObjectiveC' target in the 'FObjectiveC' project
+//
+
+#ifdef __OBJC__
+  #import <Foundation/Foundation.h>
+#endif
