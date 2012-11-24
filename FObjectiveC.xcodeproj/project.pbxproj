@@ -16,6 +16,16 @@
 		AE06677C165E8C6C00616D2F /* libFObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE066763165E8C6C00616D2F /* libFObjectiveC.a */; };
 		AE066782165E8C6C00616D2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE066780165E8C6C00616D2F /* InfoPlist.strings */; };
 		AE066785165E8C6C00616D2F /* FObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE066784165E8C6C00616D2F /* FObjectiveCTests.m */; };
+		AE066794165EB73B00616D2F /* FList.m in Sources */ = {isa = PBXBuildFile; fileRef = AE066793165EB73B00616D2F /* FList.m */; };
+		AE066795165EB73B00616D2F /* FList.m in Sources */ = {isa = PBXBuildFile; fileRef = AE066793165EB73B00616D2F /* FList.m */; };
+		AE06679C165ED20F00616D2F /* FArraySeq.m in Sources */ = {isa = PBXBuildFile; fileRef = AE06679B165ED20F00616D2F /* FArraySeq.m */; };
+		AE06679D165ED20F00616D2F /* FArraySeq.m in Sources */ = {isa = PBXBuildFile; fileRef = AE06679B165ED20F00616D2F /* FArraySeq.m */; };
+		AE0667A0165ED71200616D2F /* FArraySeqTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE06679F165ED71200616D2F /* FArraySeqTests.m */; };
+		AE0667A3165EE45C00616D2F /* FCons.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A2165EE45C00616D2F /* FCons.m */; };
+		AE0667A4165EE45C00616D2F /* FCons.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A2165EE45C00616D2F /* FCons.m */; };
+		AE0667A7165EE4CB00616D2F /* FConsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A6165EE4CA00616D2F /* FConsTests.m */; };
+		AE0667AA165EF8B000616D2F /* NSArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */; };
+		AE0667AB165EF8B000616D2F /* NSArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +64,20 @@
 		AE066781165E8C6C00616D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE066783165E8C6C00616D2F /* FObjectiveCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FObjectiveCTests.h; sourceTree = "<group>"; };
 		AE066784165E8C6C00616D2F /* FObjectiveCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FObjectiveCTests.m; sourceTree = "<group>"; };
+		AE066792165EB73B00616D2F /* FList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FList.h; sourceTree = "<group>"; };
+		AE066793165EB73B00616D2F /* FList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FList.m; sourceTree = "<group>"; };
+		AE06679A165ED20F00616D2F /* FArraySeq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FArraySeq.h; sourceTree = "<group>"; };
+		AE06679B165ED20F00616D2F /* FArraySeq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FArraySeq.m; sourceTree = "<group>"; };
+		AE06679F165ED71200616D2F /* FArraySeqTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FArraySeqTests.m; sourceTree = "<group>"; };
+		AE0667A1165EE45C00616D2F /* FCons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCons.h; sourceTree = "<group>"; };
+		AE0667A2165EE45C00616D2F /* FCons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCons.m; sourceTree = "<group>"; };
+		AE0667A5165EE4CA00616D2F /* FConsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FConsTests.h; path = FObjectiveCTests/FConsTests.h; sourceTree = SOURCE_ROOT; };
+		AE0667A6165EE4CA00616D2F /* FConsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FConsTests.m; path = FObjectiveCTests/FConsTests.m; sourceTree = SOURCE_ROOT; };
+		AE0667A8165EF8AF00616D2F /* NSArray+FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+FSeqable.h"; path = "FObjectiveC/NSArray+FSeqable.h"; sourceTree = SOURCE_ROOT; };
+		AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+FSeqable.m"; path = "FObjectiveC/NSArray+FSeqable.m"; sourceTree = SOURCE_ROOT; };
+		AE0667AC165F01D800616D2F /* FArraySeqTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FArraySeqTests.h; sourceTree = "<group>"; };
+		AE0667AD165F0CBC00616D2F /* FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSeqable.h; sourceTree = "<group>"; };
+		AE0667AE165F0CF900616D2F /* FSeq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSeq.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +135,18 @@
 		AE066768165E8C6C00616D2F /* FObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
+				AE0667AE165F0CF900616D2F /* FSeq.h */,
+				AE0667AD165F0CBC00616D2F /* FSeqable.h */,
+				AE0667A8165EF8AF00616D2F /* NSArray+FSeqable.h */,
+				AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */,
 				AE06676B165E8C6C00616D2F /* FObjectiveC.h */,
 				AE06676D165E8C6C00616D2F /* FObjectiveC.m */,
+				AE06679A165ED20F00616D2F /* FArraySeq.h */,
+				AE06679B165ED20F00616D2F /* FArraySeq.m */,
+				AE0667A1165EE45C00616D2F /* FCons.h */,
+				AE0667A2165EE45C00616D2F /* FCons.m */,
+				AE066792165EB73B00616D2F /* FList.h */,
+				AE066793165EB73B00616D2F /* FList.m */,
 				AE066769165E8C6C00616D2F /* Supporting Files */,
 			);
 			path = FObjectiveC;
@@ -131,6 +165,10 @@
 			children = (
 				AE066783165E8C6C00616D2F /* FObjectiveCTests.h */,
 				AE066784165E8C6C00616D2F /* FObjectiveCTests.m */,
+				AE0667AC165F01D800616D2F /* FArraySeqTests.h */,
+				AE06679F165ED71200616D2F /* FArraySeqTests.m */,
+				AE0667A5165EE4CA00616D2F /* FConsTests.h */,
+				AE0667A6165EE4CA00616D2F /* FConsTests.m */,
 				AE06677E165E8C6C00616D2F /* Supporting Files */,
 			);
 			path = FObjectiveCTests;
@@ -244,6 +282,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE06676E165E8C6C00616D2F /* FObjectiveC.m in Sources */,
+				AE066794165EB73B00616D2F /* FList.m in Sources */,
+				AE06679C165ED20F00616D2F /* FArraySeq.m in Sources */,
+				AE0667A3165EE45C00616D2F /* FCons.m in Sources */,
+				AE0667AA165EF8B000616D2F /* NSArray+FSeqable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +294,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE066785165E8C6C00616D2F /* FObjectiveCTests.m in Sources */,
+				AE066795165EB73B00616D2F /* FList.m in Sources */,
+				AE06679D165ED20F00616D2F /* FArraySeq.m in Sources */,
+				AE0667A0165ED71200616D2F /* FArraySeqTests.m in Sources */,
+				AE0667A4165EE45C00616D2F /* FCons.m in Sources */,
+				AE0667A7165EE4CB00616D2F /* FConsTests.m in Sources */,
+				AE0667AB165EF8B000616D2F /* NSArray+FSeqable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +337,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -397,6 +445,7 @@
 				AE06678A165E8C6C00616D2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE06678B165E8C6C00616D2F /* Build configuration list for PBXNativeTarget "FObjectiveCTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +454,7 @@
 				AE06678D165E8C6C00616D2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
