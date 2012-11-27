@@ -30,4 +30,14 @@
   STAssertEqualObjects(result, @5, @"");
 }
 
+- (void)testPartial
+{
+  FFun *adder = [FFun fn2:^id(NSNumber *a, NSNumber *b) {
+    return [NSNumber numberWithInt:([a intValue] + [b intValue])];
+  }];
+  
+  FFun *add2 = [adder partial:@[@2]];
+  STAssertEqualObjects([add2 call:@3], @5, @"");
+}
+
 @end

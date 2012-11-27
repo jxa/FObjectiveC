@@ -81,7 +81,29 @@
 
 - (FFun*)partial:(NSArray*)args
 {
-  return self;
+  int remainingArgs = self.arity - args.count;
+  FFun *partialFn;
+  switch (remainingArgs) {
+    case 1: {
+      partialFn = [FFun fn1:^id(id a) {
+        NSMutableArray *finalArgs = [NSMutableArray arrayWithArray:args];
+        [finalArgs addObject:a];
+        return [self apply:finalArgs];
+      }];
+      break;
+    } case 2: {
+      partialFn = [FFun fn2:^id(id a, id b) {
+        NSMutableArray *finalArgs = [NSMutableArray arrayWithArray:args];
+        [finalArgs addObject:a];
+        [finalArgs addObject:b];
+        return [self apply:finalArgs];
+      }];
+      break;
+    } default:
+      [NSException raise:@"Wrong number of arguments." format:@"Can't partially apply %d arguments to function of arity %d", args.count, self.arity];
+      break;
+  }
+  return partialFn;
 }
 
 //- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
