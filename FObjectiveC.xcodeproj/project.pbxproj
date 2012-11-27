@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0284C116617BA000E4AE5E /* FFun.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0284C016617BA000E4AE5E /* FFun.m */; };
+		AE0284C216617BA000E4AE5E /* FFun.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0284C016617BA000E4AE5E /* FFun.m */; };
+		AE0284C61662708100E4AE5E /* FFunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0284C51662708100E4AE5E /* FFunTests.m */; };
 		AE066767165E8C6C00616D2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE066766165E8C6C00616D2F /* Foundation.framework */; };
 		AE06676C165E8C6C00616D2F /* FObjectiveC.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE06676B165E8C6C00616D2F /* FObjectiveC.h */; };
 		AE06676E165E8C6C00616D2F /* FObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE06676D165E8C6C00616D2F /* FObjectiveC.m */; };
@@ -52,6 +55,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AE0284BF16617BA000E4AE5E /* FFun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFun.h; sourceTree = "<group>"; };
+		AE0284C016617BA000E4AE5E /* FFun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFun.m; sourceTree = "<group>"; };
+		AE0284C41662708100E4AE5E /* FFunTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFunTests.h; sourceTree = "<group>"; };
+		AE0284C51662708100E4AE5E /* FFunTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFunTests.m; sourceTree = "<group>"; };
 		AE066763165E8C6C00616D2F /* libFObjectiveC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFObjectiveC.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE066766165E8C6C00616D2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE06676A165E8C6C00616D2F /* FObjectiveC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FObjectiveC-Prefix.pch"; sourceTree = "<group>"; };
@@ -141,6 +148,8 @@
 				AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */,
 				AE06676B165E8C6C00616D2F /* FObjectiveC.h */,
 				AE06676D165E8C6C00616D2F /* FObjectiveC.m */,
+				AE0284BF16617BA000E4AE5E /* FFun.h */,
+				AE0284C016617BA000E4AE5E /* FFun.m */,
 				AE06679A165ED20F00616D2F /* FArraySeq.h */,
 				AE06679B165ED20F00616D2F /* FArraySeq.m */,
 				AE0667A1165EE45C00616D2F /* FCons.h */,
@@ -163,6 +172,8 @@
 		AE06677D165E8C6C00616D2F /* FObjectiveCTests */ = {
 			isa = PBXGroup;
 			children = (
+				AE0284C41662708100E4AE5E /* FFunTests.h */,
+				AE0284C51662708100E4AE5E /* FFunTests.m */,
 				AE066783165E8C6C00616D2F /* FObjectiveCTests.h */,
 				AE066784165E8C6C00616D2F /* FObjectiveCTests.m */,
 				AE0667AC165F01D800616D2F /* FArraySeqTests.h */,
@@ -286,6 +297,7 @@
 				AE06679C165ED20F00616D2F /* FArraySeq.m in Sources */,
 				AE0667A3165EE45C00616D2F /* FCons.m in Sources */,
 				AE0667AA165EF8B000616D2F /* NSArray+FSeqable.m in Sources */,
+				AE0284C116617BA000E4AE5E /* FFun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +312,8 @@
 				AE0667A4165EE45C00616D2F /* FCons.m in Sources */,
 				AE0667A7165EE4CB00616D2F /* FConsTests.m in Sources */,
 				AE0667AB165EF8B000616D2F /* NSArray+FSeqable.m in Sources */,
+				AE0284C216617BA000E4AE5E /* FFun.m in Sources */,
+				AE0284C61662708100E4AE5E /* FFunTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

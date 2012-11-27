@@ -33,17 +33,6 @@
   STAssertEqualObjects(mrCat(@"Cat"), @"Mr. Cat", @"");
 }
 
-// Bah! Can't do it
-//
-//- (void)testPartialFn
-//{
-//  FFn upcase = ^(NSString *str){
-//    return [str uppercaseString];
-//  };
-//  FFn mapUpcase = FPartial(FMap, upcase);
-//  
-//}
-
 - (void)testMap
 {
   NSArray *numbers = @[@"one", @"two"];
