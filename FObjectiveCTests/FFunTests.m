@@ -40,4 +40,22 @@
   STAssertEqualObjects([add2 call:@3], @5, @"");
 }
 
+- (void)testSimpleRecursion
+{
+  // it turns out that we need the __block here because count needs to be defined on the heap
+  // I need to understand this better. maybe read this again http://ddeville.me/2011/10/recursive-blocks-objc/
+  __block FFun *count;
+  count = [FFun fn2:^id(NSNumber *a, NSNumber *b) {
+    if([b isEqualToNumber:@0]){
+      return a;
+    } else {
+      NSNumber *aPrime = [NSNumber numberWithInt:([a intValue] + 1)];
+      NSNumber *bPrime = [NSNumber numberWithInt:([b intValue] - 1)];
+      return [count call:aPrime, bPrime];
+    }
+  }];
+  
+  NSNumber *result = [count call:@3, @5];
+  STAssertEqualObjects(result, @8, @"");
+}
 @end
