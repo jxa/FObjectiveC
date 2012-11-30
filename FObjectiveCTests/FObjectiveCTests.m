@@ -81,6 +81,13 @@
   STAssertEqualObjects(numbers, expected, @"");
 }
 
+- (void)testConcat
+{
+  NSArray *result = FConcat(@[@1, @2], @[@3]);
+  NSArray *expected = @[@1, @2, @3];
+  STAssertEqualObjects(result, expected, @"");
+}
+
 - (void)testReduceWithInitialValue
 {
   NSNumber *sum = FReduce(^id(id obj1, id obj2) {
@@ -126,4 +133,28 @@
   FFn not = FComplement(FIdentity);
   STAssertEqualObjects(not(@YES), @NO, @"");
 }
+
+- (void)testConstantly
+{
+  FFn unity = FConstantly(@5);
+  STAssertEqualObjects(unity(@1), @5, @"");
+  STAssertEqualObjects(unity(@10), @5, @"");
+}
+
+- (void)testTake
+{
+  NSArray *twoThings = FTake(2, @[@1, @2, @3]);
+  NSArray *expected = @[@1, @2];
+  STAssertEqualObjects(twoThings, expected, @"");
+}
+
+- (void)testTakeWhile
+{
+  NSArray *twoThings = FTakeWhile(^(NSNumber *obj){
+    return [NSNumber numberWithBool:([obj intValue]<3)];
+  }, @[@1, @2, @3]);
+  NSArray *expected = @[@1, @2];
+  STAssertEqualObjects(twoThings, expected, @"");
+}
+
 @end

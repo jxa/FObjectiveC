@@ -17,14 +17,18 @@ typedef FFn FPredicate;
 
 FFn (^FComp)(FFn f, FFn g);
 FFn (^FPartial)(FFn2 fn, id arg);
+FFn (^FComplement)(FPredicate pred);
+FFn (^FConstantly)(id obj);
 
 NSArray* (^FMap)(FFn fn, id<FSeqable>seq);
 NSArray* (^FFilter)(FPredicate pred, id<FSeqable>seq);
-NSArray* (^FRemove)(FPredicate pred, id<FSeqable>);
+NSArray* (^FRemove)(FPredicate pred, id<FSeqable>seq);
+NSArray* (^FConcat)(id<FSeqable>x, id<FSeqable>y);
 
 id (^FReduce)(FFn2 reducer, id init, id<FSeqable>seq);
 id (^FIdentity)(id obj);
 id (^FEvery)(FPredicate pred, id<FSeqable>seq);
 id (^FSome)(FPredicate pred, id<FSeqable>seq);
-FFn (^FComplement)(FPredicate pred);
 
+NSArray* (^FTake)(int n, id<FSeqable>seq);
+NSArray* (^FTakeWhile)(FPredicate pred, id<FSeqable>seq);

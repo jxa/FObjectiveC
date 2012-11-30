@@ -48,6 +48,26 @@ NSArray* (^FFilter)(FPredicate, id<FSeqable>) = ^(FPredicate pred, id<FSeqable>s
   return result;
 };
 
+NSArray* (^FRemove)(FPredicate pred, id<FSeqable>) = ^(FPredicate pred, id<FSeqable>seq)
+{
+  return FFilter(FComplement(pred), seq);
+};
+
+NSArray* (^FConcat)(id<FSeqable>x, id<FSeqable>y) = ^(id<FSeqable>x, id<FSeqable>y)
+{
+  NSMutableArray *result = [[NSMutableArray alloc] init];
+  id<FSeq> s;
+  for (id<FSeqable> seqable in @[x, y]) {
+    s = [seqable seq];
+    while ([s first]) {
+      [result addObject:[s first]];
+      s = [s next];
+    }
+  }
+  
+  return result;
+};
+
 id (^FReduce)(FFn2 reducer, id init, id<FSeqable>seq) = ^(FFn2 reducer, id init, id<FSeqable>seq)
 {
   id<FSeq> s = [seq seq];
@@ -102,7 +122,35 @@ FFn (^FComplement)(FPredicate pred) = ^(FPredicate pred)
   };
 };
 
-NSArray* (^FRemove)(FPredicate pred, id<FSeqable>) = ^(FPredicate pred, id<FSeqable>seq)
+FFn (^FConstantly)(id obj) = ^(id obj)
 {
-  return FFilter(FComplement(pred), seq);
+  return ^(id anything) {
+    return obj;
+  };
+};
+
+NSArray* (^FTake)(int, id<FSeqable>) = ^(int n, id<FSeqable>seq)
+{
+  NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:n];
+  id<FSeq> s = [seq seq];
+  
+  while (n > 0) {
+    [result addObject:[s first]];
+    s = [s next];
+    n--;
+  }
+  return result;
+};
+
+NSArray* (^FTakeWhile)(FPredicate, id<FSeqable>) = ^(FPredicate pred, id<FSeqable>seq)
+{
+  NSMutableArray *result = [[NSMutableArray alloc] init];
+  id<FSeq> s = [seq seq];
+  
+  while ([pred([s first]) boolValue]) {
+    [result addObject:[s first]];
+    s = [s next];
+  }
+
+  return result;
 };
