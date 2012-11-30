@@ -82,3 +82,27 @@ id (^FEvery)(FPredicate pred, id<FSeqable>seq) = ^(FPredicate pred, id<FSeqable>
   }
   return @YES;
 };
+
+id (^FSome)(FPredicate pred, id<FSeqable>seq) = ^(FPredicate pred, id<FSeqable>seq)
+{
+  id<FSeq> s = [seq seq];
+  while ([s first]) {
+    if ([pred([s first]) boolValue]) {
+      return @YES;
+    }
+    s = [s next];
+  }
+  return @NO;
+};
+
+FFn (^FComplement)(FPredicate pred) = ^(FPredicate pred)
+{
+  return ^(id obj){
+    return [NSNumber numberWithBool:(![pred(obj) boolValue])];
+  };
+};
+
+NSArray* (^FRemove)(FPredicate pred, id<FSeqable>) = ^(FPredicate pred, id<FSeqable>seq)
+{
+  return FFilter(FComplement(pred), seq);
+};

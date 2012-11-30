@@ -20,8 +20,11 @@ FFn (^FPartial)(FFn2 fn, id arg);
 
 NSArray* (^FMap)(FFn fn, id<FSeqable>seq);
 NSArray* (^FFilter)(FPredicate pred, id<FSeqable>seq);
+NSArray* (^FRemove)(FPredicate pred, id<FSeqable>);
 
 id (^FReduce)(FFn2 reducer, id init, id<FSeqable>seq);
 id (^FIdentity)(id obj);
 id (^FEvery)(FPredicate pred, id<FSeqable>seq);
+id (^FSome)(FPredicate pred, id<FSeqable>seq);
+FFn (^FComplement)(FPredicate pred);
 

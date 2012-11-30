@@ -70,6 +70,17 @@
   STAssertEqualObjects(numbers, expected, @"");
 }
 
+- (void)testRemove
+{
+  NSArray *numbers = FRemove(^id(id obj) {
+    return [NSNumber numberWithBool:[obj isKindOfClass:[NSNumber class]]];
+  }, @[@1, @"two", @3, @4, @"five"]);
+  
+  NSArray *expected = @[@"two", @"five"];
+  
+  STAssertEqualObjects(numbers, expected, @"");
+}
+
 - (void)testReduceWithInitialValue
 {
   NSNumber *sum = FReduce(^id(id obj1, id obj2) {
@@ -100,4 +111,19 @@
   STAssertEqualObjects(FEvery(FIdentity, @[@YES, @NO]), @NO, @"");
 }
 
+- (void)testSomeTrue
+{
+  STAssertEqualObjects(FSome(FIdentity, @[@NO, @NO]), @NO, @"");
+}
+
+- (void)testSomeFalses
+{
+  STAssertEqualObjects(FSome(FIdentity, @[@NO, @YES]), @YES, @"");
+}
+
+- (void)testComplement
+{
+  FFn not = FComplement(FIdentity);
+  STAssertEqualObjects(not(@YES), @NO, @"");
+}
 @end
