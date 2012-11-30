@@ -9,24 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "FCons.h"
 
-@interface FObjectiveC : NSObject
-
-@end
-
-//float (^oneFrom)(float);
-
-// temporary
-typedef NSArray *FSeq;
 typedef id (^FFn)(id obj);
 typedef id (^FFn2)(id obj1, id obj2);
-typedef BOOL (^FPredicate)(id obj);
 
-FFn FComp(FFn a, FFn b);
-FFn FPartial(FFn2 fn, id arg);
+// hint that the function should return truthy / falsy values
+typedef FFn FPredicate;
 
-FCons* FMap(FFn fn, id<FSeqable>seq);
-FCons* FFilter(FPredicate pred, id<FSeqable>seq);
+FFn (^FComp)(FFn f, FFn g);
+FFn (^FPartial)(FFn2 fn, id arg);
 
-id FReduce(FFn2 reducer, id init, id<FSeqable>seq);
+NSArray* (^FMap)(FFn fn, id<FSeqable>seq);
+NSArray* (^FFilter)(FPredicate pred, id<FSeqable>seq);
 
+id (^FReduce)(FFn2 reducer, id init, id<FSeqable>seq);
+id (^FIdentity)(id obj);
+id (^FEvery)(FPredicate pred, id<FSeqable>seq);
 

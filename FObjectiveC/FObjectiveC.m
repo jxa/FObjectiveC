@@ -8,51 +8,47 @@
 
 #import "FObjectiveC.h"
 
-@implementation FObjectiveC
-
-@end
-
-FFn FComp(FFn f, FFn g)
+FFn (^FComp)(FFn, FFn) = ^(FFn f, FFn g)
 {
   return ^(id obj){
     return f(g(obj));
   };
-}
+};
 
-FFn FPartial(FFn2 fn, id arg)
+FFn (^FPartial)(FFn2, id) = ^(FFn2 fn, id arg)
 {
   return ^(id obj){
     return fn(arg, obj);
   };
-}
+};
 
-FCons* FMap(FFn fn, id<FSeqable>seq)
+NSArray* (^FMap)(FFn, id<FSeqable>) = ^(FFn fn, id<FSeqable>seq)
 {
+  NSMutableArray *result = [[NSMutableArray alloc] init];
   id<FSeq> s = [seq seq];
-  id first = [s first];
-  if (first) {
-    return [[FCons alloc] initWithHead:fn(first) tail:FMap(fn, (id<FSeqable>)[s next])];
-  } else {
-    return nil;
+  while ([s first]) {
+    [result addObject:fn([s first])];
+    s = [s next];
   }
-}
+  return result;
+};
 
-FCons* FFilter(FPredicate pred, id<FSeqable>seq)
+NSArray* (^FFilter)(FPredicate, id<FSeqable>) = ^(FPredicate pred, id<FSeqable>seq)
 {
   id<FSeq> s = [seq seq];
-  id first = [s first];
-  if (first) {
-    if (pred(first)) {
-      return [[FCons alloc] initWithHead:first tail:FFilter(pred, (id<FSeqable>)[s next])];
-    } else {
-      return FFilter(pred, (id<FSeqable>)[s next]);
+  NSMutableArray *result = [[NSMutableArray alloc] init];
+
+  while ([s first]) {
+    if ([pred([s first]) boolValue]) {
+      [result addObject:[s first]];
     }
-  } else {
-    return nil;
+    s = [s next];
   }
-}
+  
+  return result;
+};
 
-id FReduce(FFn2 reducer, id init, id<FSeqable>seq)
+id (^FReduce)(FFn2 reducer, id init, id<FSeqable>seq) = ^(FFn2 reducer, id init, id<FSeqable>seq)
 {
   id<FSeq> s = [seq seq];
   id first = [s first];
@@ -68,4 +64,21 @@ id FReduce(FFn2 reducer, id init, id<FSeqable>seq)
     }
   }
   return result;
-}
+};
+
+id (^FIdentity)(id obj) = ^(id obj)
+{
+  return obj;
+};
+
+id (^FEvery)(FPredicate pred, id<FSeqable>seq) = ^(FPredicate pred, id<FSeqable>seq)
+{
+  id<FSeq> s = [seq seq];
+  while ([s first]) {
+    if (![pred([s first]) boolValue]) {
+      return @NO;
+    }
+    s = [s next];
+  }
+  return @YES;
+};

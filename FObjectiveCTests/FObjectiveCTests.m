@@ -7,6 +7,7 @@
 //
 
 #import "FObjectiveCTests.h"
+#import "FObjectiveC.h"
 
 @implementation FObjectiveCTests
 
@@ -36,12 +37,12 @@
 - (void)testMap
 {
   NSArray *numbers = @[@"one", @"two"];
-  FCons *upcaseNumbers = FMap(^id(id number) {
+  NSArray *upcaseNumbers = FMap(^id(id number) {
     return [(NSString*)number uppercaseString];
   }, numbers);
   
-  STAssertEqualObjects([upcaseNumbers first], @"ONE", @"");
-  STAssertEqualObjects([[upcaseNumbers next] first], @"TWO", @"");
+  NSArray *expected = @[@"ONE", @"TWO"];
+  STAssertEqualObjects(upcaseNumbers, expected, @"");
 }
 
 // Need to set optimization level to -O2 at least (or enable the -foptimize-sibling-calls flag)
@@ -52,22 +53,21 @@
   for (int i=0; i<size; i++) {
     [array addObject:@"string"];
   }
-  FCons *upcaseNumbers = FMap(^id(id number) {
+  NSArray *upcaseNumbers = FMap(^id(id number) {
     return [(NSString*)number uppercaseString];
   }, array);
-  STAssertEqualObjects([upcaseNumbers first], @"STRING", @"");
+  STAssertEqualObjects([upcaseNumbers objectAtIndex:0], @"STRING", @"");
 }
 
 - (void)testFilter
 {
-  FCons *numbers = FFilter(^BOOL(id obj) {
-    return [obj isKindOfClass:[NSNumber class]];
+  NSArray *numbers = FFilter(^id(id obj) {
+    return [NSNumber numberWithBool:[obj isKindOfClass:[NSNumber class]]];
   }, @[@1, @"two", @3, @4, @"five"]);
   
-  STAssertEqualObjects([numbers first], @1, @"");
-  STAssertEqualObjects([[numbers next] first], @3, @"");
-  STAssertEqualObjects([[[numbers next] next] first], @4, @"");
-  STAssertNil([[[[numbers next] next] next] first], @"");
+  NSArray *expected = @[@1, @3, @4];
+  
+  STAssertEqualObjects(numbers, expected, @"");
 }
 
 - (void)testReduceWithInitialValue
@@ -88,6 +88,16 @@
   }, nil, @[@1, @2, @3, @4]);
   
   STAssertEqualObjects(sum, @10, @"");
+}
+
+- (void)testEveryTrue
+{
+  STAssertEqualObjects(FEvery(FIdentity, @[@YES, @YES]), @YES, @"");
+}
+
+- (void)testEveryFalses
+{
+  STAssertEqualObjects(FEvery(FIdentity, @[@YES, @NO]), @NO, @"");
 }
 
 @end
