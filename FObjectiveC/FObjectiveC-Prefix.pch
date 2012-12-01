@@ -11,4 +11,7 @@
 #import "NSMutableArray+FSeqable.h"
 #import "NSOrderedSet+FSeqable.h"
 #import "NSSet+FSeqable.h"
+
+#define FBool(b) [NSNumber numberWithBool:b]
+
 #endif

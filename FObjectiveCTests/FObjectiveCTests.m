@@ -11,6 +11,12 @@
 
 @implementation FObjectiveCTests
 
+- (void)testFBoolMacro
+{
+  STAssertEqualObjects(FBool(YES), @YES, @"");
+  STAssertEqualObjects(FBool(NO), @NO, @"");
+}
+
 - (void)testComp
 {
   FFn upcase = ^(NSString *str){
@@ -37,8 +43,8 @@
 - (void)testMap
 {
   NSArray *numbers = @[@"one", @"two"];
-  NSArray *upcaseNumbers = FMap(^id(id number) {
-    return [(NSString*)number uppercaseString];
+  NSArray *upcaseNumbers = FMap(^(NSString* number) {
+    return [number uppercaseString];
   }, numbers);
   
   NSArray *expected = @[@"ONE", @"TWO"];
@@ -53,16 +59,16 @@
   for (int i=0; i<size; i++) {
     [array addObject:@"string"];
   }
-  NSArray *upcaseNumbers = FMap(^id(id number) {
-    return [(NSString*)number uppercaseString];
+  NSArray *upcaseNumbers = FMap(^(NSString* number) {
+    return [number uppercaseString];
   }, array);
   STAssertEqualObjects([upcaseNumbers objectAtIndex:0], @"STRING", @"");
 }
 
 - (void)testFilter
 {
-  NSArray *numbers = FFilter(^id(id obj) {
-    return [NSNumber numberWithBool:[obj isKindOfClass:[NSNumber class]]];
+  NSArray *numbers = FFilter(^(id obj) {
+    return FBool([obj isKindOfClass:[NSNumber class]]);
   }, @[@1, @"two", @3, @4, @"five"]);
   
   NSArray *expected = @[@1, @3, @4];
@@ -72,8 +78,8 @@
 
 - (void)testRemove
 {
-  NSArray *numbers = FRemove(^id(id obj) {
-    return [NSNumber numberWithBool:[obj isKindOfClass:[NSNumber class]]];
+  NSArray *numbers = FRemove(^(id obj) {
+    return FBool([obj isKindOfClass:[NSNumber class]]);
   }, @[@1, @"two", @3, @4, @"five"]);
   
   NSArray *expected = @[@"two", @"five"];
@@ -90,8 +96,8 @@
 
 - (void)testReduceWithInitialValue
 {
-  NSNumber *sum = FReduce(^id(id obj1, id obj2) {
-    int sum = [(NSNumber*)obj1 integerValue] + [(NSNumber*)obj2 integerValue];
+  NSNumber *sum = FReduce(^(NSNumber *obj1, NSNumber *obj2) {
+    int sum = [obj1 integerValue] + [obj2 integerValue];
     return [NSNumber numberWithInt:sum];
   }, @0, @[@1, @2, @3, @4]);
   
@@ -100,8 +106,8 @@
 
 - (void)testReduceWithoutInitialValue
 {
-  NSNumber *sum = FReduce(^id(id obj1, id obj2) {
-    int sum = [(NSNumber*)obj1 integerValue] + [(NSNumber*)obj2 integerValue];
+  NSNumber *sum = FReduce(^(NSNumber *obj1, NSNumber *obj2) {
+    int sum = [obj1 integerValue] + [obj2 integerValue];
     return [NSNumber numberWithInt:sum];
   }, nil, @[@1, @2, @3, @4]);
   
@@ -157,7 +163,7 @@
 - (void)testTakeWhile
 {
   NSArray *twoThings = FTakeWhile(^(NSNumber *obj){
-    return [NSNumber numberWithBool:([obj intValue]<3)];
+    return FBool([obj intValue]<3);
   }, @[@1, @2, @3]);
   NSArray *expected = @[@1, @2];
   STAssertEqualObjects(twoThings, expected, @"");
@@ -188,7 +194,7 @@
 - (void)testDropWhile
 {
   NSArray *numbers = FDropWhile(^(NSNumber *obj){
-    return [NSNumber numberWithBool:([obj intValue]<3)];
+    return FBool([obj intValue]<3);
   }, @[@1, @2, @3]);
   NSArray *expected = @[@3];
   STAssertEqualObjects(numbers, expected, @"");
