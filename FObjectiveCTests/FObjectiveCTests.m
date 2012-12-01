@@ -148,6 +148,12 @@
   STAssertEqualObjects(twoThings, expected, @"");
 }
 
+- (void)testTakeMoreThanWeHave
+{
+  NSArray *numbers = @[@1, @2, @3];
+  STAssertEqualObjects(FTake(7, numbers), numbers, @"");
+}
+
 - (void)testTakeWhile
 {
   NSArray *twoThings = FTakeWhile(^(NSNumber *obj){
@@ -157,4 +163,58 @@
   STAssertEqualObjects(twoThings, expected, @"");
 }
 
+- (void)testTakeWhileAlwaysTrue
+{
+  NSArray *numbers = FTakeWhile(^(NSNumber *obj){
+    return @YES;
+  }, @[@1, @2, @3]);
+  NSArray *expected = @[@1, @2, @3];
+  STAssertEqualObjects(numbers, expected, @"");
+}
+
+- (void)testDrop
+{
+  NSArray *oneThing = FDrop(2, @[@1, @2, @3]);
+  NSArray *expected = @[@3];
+  STAssertEqualObjects(oneThing, expected, @"");
+}
+
+- (void)testDropMoreThanWeHave
+{
+  NSArray *numbers = FDrop(4, @[@1, @2, @3]);
+  STAssertEqualObjects(numbers, @[], @"");
+}
+
+- (void)testDropWhile
+{
+  NSArray *numbers = FDropWhile(^(NSNumber *obj){
+    return [NSNumber numberWithBool:([obj intValue]<3)];
+  }, @[@1, @2, @3]);
+  NSArray *expected = @[@3];
+  STAssertEqualObjects(numbers, expected, @"");
+}
+
+- (void)testDropWhileAlwaysTrue
+{
+  NSArray *numbers = FDropWhile(^(NSNumber *obj){
+    return @YES;
+  }, @[@1, @2, @3]);
+  STAssertEqualObjects(numbers, @[], @"");
+}
+
+- (void)testRange
+{
+  NSArray *expected = @[@1, @2, @3];
+  STAssertEqualObjects(FRange(1,4,1), expected, @"");
+
+  expected = @[@1, @3, @5];
+  STAssertEqualObjects(FRange(1, 6, 2), expected, @"");
+}
+
+- (void)testPartition
+{
+  NSArray *expected = @[ @[@1, @2], @[@3, @4] ];
+  FPartition(2, FRange(1, 3, 1));
+  STAssertEqualObjects(FPartition(2, FRange(1, 6, 1)), expected, @"");
+}
 @end

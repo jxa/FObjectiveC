@@ -20,6 +20,8 @@ FFn (^FPartial)(FFn2 fn, id arg);
 FFn (^FComplement)(FPredicate pred);
 FFn (^FConstantly)(id obj);
 
+// TODO: maybe mark these return types as FSeqable so we can change
+//       implementation in the future.
 NSArray* (^FMap)(FFn fn, id<FSeqable>seq);
 NSArray* (^FFilter)(FPredicate pred, id<FSeqable>seq);
 NSArray* (^FRemove)(FPredicate pred, id<FSeqable>seq);
@@ -32,3 +34,8 @@ id (^FSome)(FPredicate pred, id<FSeqable>seq);
 
 NSArray* (^FTake)(int n, id<FSeqable>seq);
 NSArray* (^FTakeWhile)(FPredicate pred, id<FSeqable>seq);
+NSArray* (^FDrop)(int n, id<FSeqable>seq);
+NSArray* (^FDropWhile)(FPredicate pred, id<FSeqable>seq);
+NSArray* (^FPartition)(int n, id<FSeqable>seq);
+
+NSArray* (^FRange)(int start, int end, int step);

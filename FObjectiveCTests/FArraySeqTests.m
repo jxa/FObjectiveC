@@ -31,6 +31,12 @@
   STAssertEqualObjects([self.seq first], @"one", @"first obj in array");
 }
 
+- (void)testFirstOfEmptyArray
+{
+  FArraySeq *seq = [[FArraySeq alloc] initWithArray:@[]];
+  STAssertNil([seq first], @"");
+}
+
 - (void)testNext
 {
   STAssertEqualObjects([[self.seq next] first], @"two", @"second obj in array");

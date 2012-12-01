@@ -134,7 +134,7 @@ NSArray* (^FTake)(int, id<FSeqable>) = ^(int n, id<FSeqable>seq)
   NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:n];
   id<FSeq> s = [seq seq];
   
-  while (n > 0) {
+  while (n > 0 && [s first]) {
     [result addObject:[s first]];
     s = [s next];
     n--;
@@ -147,10 +147,54 @@ NSArray* (^FTakeWhile)(FPredicate, id<FSeqable>) = ^(FPredicate pred, id<FSeqabl
   NSMutableArray *result = [[NSMutableArray alloc] init];
   id<FSeq> s = [seq seq];
   
-  while ([pred([s first]) boolValue]) {
+  while ([s first] && [pred([s first]) boolValue]) {
     [result addObject:[s first]];
     s = [s next];
   }
 
+  return result;
+};
+
+NSArray* (^FDrop)(int, id<FSeqable>) = ^(int n, id<FSeqable>seq)
+{
+  id<FSeq> s = [seq seq];
+  
+  while (n > 0 && (s = [s next])) {
+    n--;
+  }
+  
+  return FMap(FIdentity, (id<FSeqable>)s);
+};
+
+NSArray* (^FDropWhile)(FPredicate, id<FSeqable>) = ^(FPredicate pred, id<FSeqable>seq)
+{
+  id<FSeq> s = [seq seq];
+  
+  while ([s first] && [pred([s first]) boolValue]) {
+    s = [s next];
+  }
+  
+  return FMap(FIdentity, (id<FSeqable>)s);
+};
+
+NSArray* (^FRange)(int, int, int) = ^(int start, int end, int step)
+{
+  NSMutableArray *result = [[NSMutableArray alloc] init];
+  for(int i=start; i < end; i += step) {
+    [result addObject:[NSNumber numberWithInt:i]];
+  }
+  return result;
+};
+
+NSArray* (^FPartition)(int, id<FSeqable>) = ^(int n, id<FSeqable>seq)
+{
+  NSMutableArray *result = [[NSMutableArray alloc] init];
+  NSArray *chunk = FTake(n, seq);
+  while ([chunk count] == n) {
+    [result addObject:chunk];
+    seq = FDrop(n, seq);
+    chunk = FTake(n, seq);
+  }
+  
   return result;
 };

@@ -37,7 +37,11 @@
 
 - (id)first
 {
-  return [self.array objectAtIndex:self.index];
+  if ([self.array count] > self.index) {
+    return [self.array objectAtIndex:self.index];
+  } else {
+    return nil;
+  }
 }
 
 - (id<FSeq>)next
