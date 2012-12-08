@@ -64,4 +64,16 @@
   STAssertNotNil([[dict seq] first], @"");
 }
 
+- (void)testString
+{
+  NSString *str = @"string";
+  STAssertEqualObjects([[str seq] first], @"s", @"");
+}
+
+- (void)testMutableString
+{
+  NSMutableString *str = [NSMutableString stringWithString:@"string"];
+  STAssertEqualObjects([[str seq] first], @"s", @"");
+}
+
 @end

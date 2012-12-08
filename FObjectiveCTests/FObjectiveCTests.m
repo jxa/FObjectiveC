@@ -233,4 +233,14 @@
   NSArray *expected = @[@[@"one", @1], @[@"two", @2]];
   STAssertEqualObjects(result, expected, @"brittle test expects dictionary to be ordered");
 }
+
+- (void)testMapOverString
+{
+  NSArray *result = FMap(^(NSString *c) {
+    return [c uppercaseString];
+  }, @"yelling");
+  NSArray *expected = @[@"Y",@"E",@"L",@"L",@"I",@"N",@"G"];
+  STAssertEqualObjects(result, expected, @"");
+}
+
 @end

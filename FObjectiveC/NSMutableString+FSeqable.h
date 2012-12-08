@@ -1,0 +1,13 @@
+//
+//  NSMutableString+FSeqable.h
+//  FObjectiveC
+//
+//  Created by John Andrews on 12/8/12.
+//  Copyright (c) 2012 John Andrews. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface NSMutableString (FSeqable) <FSeqable>
+
+@end
