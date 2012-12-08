@@ -53,4 +53,15 @@
   STAssertNotNil([seq first], @"");
 }
 
+- (void)testDictionary
+{
+  STAssertNotNil([[@{@"key" : @"value"} seq] first], @"");
+}
+
+- (void)testMutableDictionary
+{
+  NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{@"key" : @"value"}];
+  STAssertNotNil([[dict seq] first], @"");
+}
+
 @end

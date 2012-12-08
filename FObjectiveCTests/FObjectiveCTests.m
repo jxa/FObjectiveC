@@ -223,4 +223,14 @@
   FPartition(2, FRange(1, 3, 1));
   STAssertEqualObjects(FPartition(2, FRange(1, 6, 1)), expected, @"");
 }
+
+- (void)testMapOverDictionary
+{
+  NSDictionary *dict = @{@1 : @"one", @2 : @"two"};
+  NSArray *result = FMap(^(NSArray *kv) {
+    return @[[kv objectAtIndex:1], [kv objectAtIndex:0]];
+  }, dict);
+  NSArray *expected = @[@[@"one", @1], @[@"two", @2]];
+  STAssertEqualObjects(result, expected, @"brittle test expects dictionary to be ordered");
+}
 @end

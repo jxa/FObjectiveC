@@ -29,8 +29,15 @@
 		AE0667A7165EE4CB00616D2F /* FConsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A6165EE4CA00616D2F /* FConsTests.m */; };
 		AE0667AA165EF8B000616D2F /* NSArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */; };
 		AE0667AB165EF8B000616D2F /* NSArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */; };
-		AEEFAA6A1669E8B0001D064B /* NSMutableArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFAA691669E8B0001D064B /* NSMutableArray+FSeqable.m */; };
-		AEEFAA6B1669E8B0001D064B /* NSMutableArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFAA691669E8B0001D064B /* NSMutableArray+FSeqable.m */; };
+		AE87DB261672EDB600AA6714 /* NSDictionary+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB251672EDB600AA6714 /* NSDictionary+FSeqable.m */; };
+		AE87DB291672EF1700AA6714 /* FDictionarySeq.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB281672EF1700AA6714 /* FDictionarySeq.m */; };
+		AE87DB2A1672EF1700AA6714 /* FDictionarySeq.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB281672EF1700AA6714 /* FDictionarySeq.m */; };
+		AE87DB2D1672EF4800AA6714 /* FDictionarySeqTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB2C1672EF4800AA6714 /* FDictionarySeqTests.m */; };
+		AE87DB2E1672F9C400AA6714 /* NSDictionary+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB251672EDB600AA6714 /* NSDictionary+FSeqable.m */; };
+		AE87DB311672FA6F00AA6714 /* NSMutableArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB301672FA6F00AA6714 /* NSMutableArray+FSeqable.m */; };
+		AE87DB321672FA6F00AA6714 /* NSMutableArray+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB301672FA6F00AA6714 /* NSMutableArray+FSeqable.m */; };
+		AE87DB351672FB7000AA6714 /* NSMutableDictionary+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB341672FB6F00AA6714 /* NSMutableDictionary+FSeqable.m */; };
+		AE87DB361672FB7000AA6714 /* NSMutableDictionary+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AE87DB341672FB6F00AA6714 /* NSMutableDictionary+FSeqable.m */; };
 		AEEFAA6F1669EA44001D064B /* NSSet+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFAA6E1669EA44001D064B /* NSSet+FSeqable.m */; };
 		AEEFAA701669EA44001D064B /* NSSet+FSeqable.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFAA6E1669EA44001D064B /* NSSet+FSeqable.m */; };
 		AEEFAA731669EC62001D064B /* FSeqableCategoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFAA721669EC62001D064B /* FSeqableCategoriesTests.m */; };
@@ -92,8 +99,16 @@
 		AE0667AC165F01D800616D2F /* FArraySeqTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FArraySeqTests.h; sourceTree = "<group>"; };
 		AE0667AD165F0CBC00616D2F /* FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSeqable.h; sourceTree = "<group>"; };
 		AE0667AE165F0CF900616D2F /* FSeq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSeq.h; sourceTree = "<group>"; };
-		AEEFAA681669E8B0001D064B /* NSMutableArray+FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FSeqable.h"; sourceTree = "<group>"; };
-		AEEFAA691669E8B0001D064B /* NSMutableArray+FSeqable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FSeqable.m"; sourceTree = "<group>"; };
+		AE87DB241672EDB600AA6714 /* NSDictionary+FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FSeqable.h"; sourceTree = "<group>"; };
+		AE87DB251672EDB600AA6714 /* NSDictionary+FSeqable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FSeqable.m"; sourceTree = "<group>"; };
+		AE87DB271672EF1700AA6714 /* FDictionarySeq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDictionarySeq.h; sourceTree = "<group>"; };
+		AE87DB281672EF1700AA6714 /* FDictionarySeq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDictionarySeq.m; sourceTree = "<group>"; };
+		AE87DB2B1672EF4800AA6714 /* FDictionarySeqTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDictionarySeqTests.h; sourceTree = "<group>"; };
+		AE87DB2C1672EF4800AA6714 /* FDictionarySeqTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDictionarySeqTests.m; sourceTree = "<group>"; };
+		AE87DB2F1672FA6F00AA6714 /* NSMutableArray+FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FSeqable.h"; sourceTree = "<group>"; };
+		AE87DB301672FA6F00AA6714 /* NSMutableArray+FSeqable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FSeqable.m"; sourceTree = "<group>"; };
+		AE87DB331672FB6F00AA6714 /* NSMutableDictionary+FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+FSeqable.h"; sourceTree = "<group>"; };
+		AE87DB341672FB6F00AA6714 /* NSMutableDictionary+FSeqable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+FSeqable.m"; sourceTree = "<group>"; };
 		AEEFAA6D1669EA44001D064B /* NSSet+FSeqable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+FSeqable.h"; sourceTree = "<group>"; };
 		AEEFAA6E1669EA44001D064B /* NSSet+FSeqable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+FSeqable.m"; sourceTree = "<group>"; };
 		AEEFAA711669EC62001D064B /* FSeqableCategoriesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSeqableCategoriesTests.h; sourceTree = "<group>"; };
@@ -161,8 +176,12 @@
 				AE0667AD165F0CBC00616D2F /* FSeqable.h */,
 				AE0667A8165EF8AF00616D2F /* NSArray+FSeqable.h */,
 				AE0667A9165EF8B000616D2F /* NSArray+FSeqable.m */,
-				AEEFAA681669E8B0001D064B /* NSMutableArray+FSeqable.h */,
-				AEEFAA691669E8B0001D064B /* NSMutableArray+FSeqable.m */,
+				AE87DB241672EDB600AA6714 /* NSDictionary+FSeqable.h */,
+				AE87DB251672EDB600AA6714 /* NSDictionary+FSeqable.m */,
+				AE87DB331672FB6F00AA6714 /* NSMutableDictionary+FSeqable.h */,
+				AE87DB341672FB6F00AA6714 /* NSMutableDictionary+FSeqable.m */,
+				AE87DB2F1672FA6F00AA6714 /* NSMutableArray+FSeqable.h */,
+				AE87DB301672FA6F00AA6714 /* NSMutableArray+FSeqable.m */,
 				AEEFAA741669EF41001D064B /* NSOrderedSet+FSeqable.h */,
 				AEEFAA751669EF41001D064B /* NSOrderedSet+FSeqable.m */,
 				AEEFAA6D1669EA44001D064B /* NSSet+FSeqable.h */,
@@ -173,6 +192,8 @@
 				AE0284C016617BA000E4AE5E /* FFun.m */,
 				AE06679A165ED20F00616D2F /* FArraySeq.h */,
 				AE06679B165ED20F00616D2F /* FArraySeq.m */,
+				AE87DB271672EF1700AA6714 /* FDictionarySeq.h */,
+				AE87DB281672EF1700AA6714 /* FDictionarySeq.m */,
 				AE0667A1165EE45C00616D2F /* FCons.h */,
 				AE0667A2165EE45C00616D2F /* FCons.m */,
 				AE066792165EB73B00616D2F /* FList.h */,
@@ -193,6 +214,8 @@
 		AE06677D165E8C6C00616D2F /* FObjectiveCTests */ = {
 			isa = PBXGroup;
 			children = (
+				AE87DB2B1672EF4800AA6714 /* FDictionarySeqTests.h */,
+				AE87DB2C1672EF4800AA6714 /* FDictionarySeqTests.m */,
 				AEEFAA711669EC62001D064B /* FSeqableCategoriesTests.h */,
 				AEEFAA721669EC62001D064B /* FSeqableCategoriesTests.m */,
 				AE0284C41662708100E4AE5E /* FFunTests.h */,
@@ -321,9 +344,12 @@
 				AE0667A3165EE45C00616D2F /* FCons.m in Sources */,
 				AE0667AA165EF8B000616D2F /* NSArray+FSeqable.m in Sources */,
 				AE0284C116617BA000E4AE5E /* FFun.m in Sources */,
-				AEEFAA6A1669E8B0001D064B /* NSMutableArray+FSeqable.m in Sources */,
 				AEEFAA6F1669EA44001D064B /* NSSet+FSeqable.m in Sources */,
 				AEEFAA761669EF41001D064B /* NSOrderedSet+FSeqable.m in Sources */,
+				AE87DB261672EDB600AA6714 /* NSDictionary+FSeqable.m in Sources */,
+				AE87DB291672EF1700AA6714 /* FDictionarySeq.m in Sources */,
+				AE87DB311672FA6F00AA6714 /* NSMutableArray+FSeqable.m in Sources */,
+				AE87DB351672FB7000AA6714 /* NSMutableDictionary+FSeqable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +366,14 @@
 				AE0667AB165EF8B000616D2F /* NSArray+FSeqable.m in Sources */,
 				AE0284C216617BA000E4AE5E /* FFun.m in Sources */,
 				AE0284C61662708100E4AE5E /* FFunTests.m in Sources */,
-				AEEFAA6B1669E8B0001D064B /* NSMutableArray+FSeqable.m in Sources */,
 				AEEFAA701669EA44001D064B /* NSSet+FSeqable.m in Sources */,
 				AEEFAA731669EC62001D064B /* FSeqableCategoriesTests.m in Sources */,
 				AEEFAA771669EF41001D064B /* NSOrderedSet+FSeqable.m in Sources */,
+				AE87DB2A1672EF1700AA6714 /* FDictionarySeq.m in Sources */,
+				AE87DB2D1672EF4800AA6714 /* FDictionarySeqTests.m in Sources */,
+				AE87DB2E1672F9C400AA6714 /* NSDictionary+FSeqable.m in Sources */,
+				AE87DB321672FA6F00AA6714 /* NSMutableArray+FSeqable.m in Sources */,
+				AE87DB361672FB7000AA6714 /* NSMutableDictionary+FSeqable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

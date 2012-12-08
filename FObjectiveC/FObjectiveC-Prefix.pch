@@ -9,8 +9,11 @@
 #import "FCons.h"
 #import "NSArray+FSeqable.h"
 #import "NSMutableArray+FSeqable.h"
+#import "NSDictionary+FSeqable.h"
+#import "NSMutableDictionary+FSeqable.h"
 #import "NSOrderedSet+FSeqable.h"
 #import "NSSet+FSeqable.h"
+#import "FDictionarySeq.h"
 
 #define FBool(b) [NSNumber numberWithBool:b]
 
