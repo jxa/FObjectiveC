@@ -22,6 +22,26 @@ FFn (^FPartial)(FFn2, id) = ^(FFn2 fn, id arg)
   };
 };
 
+FFn (^FFnFromSelector)(SEL) = ^(SEL selector)
+{
+  return ^(id obj) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    return [obj performSelector:selector];
+#pragma clang diagnostic pop
+  };
+};
+
+FFn (^FFnFromTargetAndSelector)(id, SEL) = ^(id target, SEL selector)
+{
+  return ^(id obj) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    return [target performSelector:selector withObject:obj];
+#pragma clang diagnostic pop
+  };
+};
+
 NSArray* (^FMap)(FFn, id<FSeqable>) = ^(FFn fn, id<FSeqable>seq)
 {
   NSMutableArray *result = [[NSMutableArray alloc] init];

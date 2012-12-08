@@ -243,4 +243,19 @@
   STAssertEqualObjects(result, expected, @"");
 }
 
+- (void)testFnFromSelector
+{
+  NSArray *result = FMap(FFnFromSelector(@selector(uppercaseString)), @[@"one", @"two"]);
+  NSArray *expected = @[@"ONE", @"TWO"];
+  STAssertEqualObjects(result, expected, @"");
+}
+
+- (void)testFnFromTargetAndSelector
+{
+  NSString *prefix = @"number ";
+  NSArray *result = FMap(FFnFromTargetAndSelector(prefix, @selector(stringByAppendingString:)), @[@"one", @"two"]);
+  NSArray *expected = @[@"number one", @"number two"];
+  STAssertEqualObjects(result, expected, @"");
+}
+
 @end
