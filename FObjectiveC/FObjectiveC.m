@@ -32,6 +32,16 @@ FFn (^FFnFromSelector)(SEL) = ^(SEL selector)
   };
 };
 
+FFn2 (^FFn2FromSelector)(SEL) = ^(SEL selector)
+{
+  return ^(id a, id b) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    return [a performSelector:selector withObject:b];
+#pragma clang diagnostic pop
+  };
+};
+
 FFn (^FFnFromTargetAndSelector)(id, SEL) = ^(id target, SEL selector)
 {
   return ^(id obj) {

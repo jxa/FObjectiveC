@@ -21,7 +21,9 @@ FFn (^FComplement)(FPredicate pred);
 FFn (^FConstantly)(id obj);
 
 FFn (^FFnFromSelector)(SEL selector);
+FFn2 (^FFn2FromSelector)(SEL selector);
 FFn (^FFnFromTargetAndSelector)(id target, SEL selector);
+
 
 // TODO: maybe mark these return types as FSeqable so we can change
 //       implementation in the future.

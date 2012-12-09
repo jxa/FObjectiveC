@@ -258,4 +258,19 @@
   STAssertEqualObjects(result, expected, @"");
 }
 
+- (void)testFFn2FromSelector
+{
+  FFn substrings = ^(NSString *str){
+    return FMap(^(NSNumber *n){
+      return FReduce(FFn2FromSelector(@selector(stringByAppendingString:)), nil, FTake([n intValue], str));
+    }, FRange(1, [str length], 1));
+  };
+
+  NSArray *expected =  @[  @"F", @"FO", @"FOb", @"FObj", @"FObje", @"FObjec", @"FObject", @"FObjecti", @"FObjectiv", @"FObjective"];
+
+  STAssertEqualObjects(substrings(@"FObjectiveC"), expected, @"");
+}
+
+
+
 @end
