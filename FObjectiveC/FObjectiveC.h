@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FSeq.h"
+#import "FSeqable.h"
 #import "FCons.h"
+#import "NSArray+FSeqable.h"
+#import "NSMutableArray+FSeqable.h"
+#import "NSDictionary+FSeqable.h"
+#import "NSMutableDictionary+FSeqable.h"
+#import "NSOrderedSet+FSeqable.h"
+#import "NSSet+FSeqable.h"
+#import "NSString+FSeqable.h"
+#import "FDictionarySeq.h"
+#import "FStringSeq.h"
+
+#define FBool(b) [NSNumber numberWithBool:b]
 
 typedef id (^FFn)(id obj);
 typedef id (^FFn2)(id obj1, id obj2);

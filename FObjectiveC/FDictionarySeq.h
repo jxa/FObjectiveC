@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FSeq.h"
+#import "FSeqable.h"
 
 @interface FDictionarySeq : NSObject <FSeq, FSeqable>
 

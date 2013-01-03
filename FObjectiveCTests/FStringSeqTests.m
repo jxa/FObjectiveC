@@ -7,6 +7,7 @@
 //
 
 #import "FStringSeqTests.h"
+#import "FObjectiveC.h"
 
 @implementation FStringSeqTests
 

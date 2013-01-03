@@ -7,6 +7,7 @@
 //
 
 #import "FDictionarySeqTests.h"
+#import "FObjectiveC.h"
 
 @implementation FDictionarySeqTests
 

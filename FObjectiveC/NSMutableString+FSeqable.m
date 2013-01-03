@@ -8,6 +8,7 @@
 
 #import "NSMutableString+FSeqable.h"
 #import "FStringSeq.h"
+#import "FSeq.h"
 
 @implementation NSMutableString (FSeqable)
 

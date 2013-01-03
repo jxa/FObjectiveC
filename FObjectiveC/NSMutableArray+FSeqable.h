@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FSeqable.h"
 
 @interface NSMutableArray (FSeqable) <FSeqable>
 
